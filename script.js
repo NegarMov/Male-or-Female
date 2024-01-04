@@ -1,6 +1,9 @@
 // Get the required elements from the doc
 var submitButton = document.getElementById('submit');
+var saveButton = document.getElementById('save');
+var clearButton = document.getElementById('clear');
 var errorElement = document.getElementById('error');
+
 
 function validateName(event) {
     event = event || window.event;
@@ -41,8 +44,8 @@ submitButton.addEventListener('click', function() {
                 probabilityElement.textContent = '-';
             } else {
                 // Update the paragraphs with the response data
-                genderElement.textContent = data.gender;
-                probabilityElement.textContent = data.probability;
+                genderElement.textContent = 'Gender: ' + data.gender;
+                probabilityElement.textContent = 'Probability: ' + data.probability;
 
                 // Hide the error field
                 errorElement.style.display = 'none';
@@ -56,4 +59,41 @@ submitButton.addEventListener('click', function() {
             errorElement.style.display = 'block';
             errorElement.textContent = 'Error: An error encountered while communicating with the API...'
         });
+
+        // Show the saved answer to the user (if exists)
+        savedGender = localStorage.getItem(name.toLowerCase());
+        var savedElement = document.getElementsByClassName('saved-section')[0];
+        if (savedGender) {
+            savedElement.style.display = 'block';
+
+            var savedAnswerElement = document.getElementById('saved-answer');
+            savedAnswerElement.textContent = 'Gender: ' + savedGender;
+        } else {
+            savedElement.style.display = 'none';
+        }
+});
+
+
+// Add a click event listener to the save button
+saveButton.addEventListener('click', function() {
+    // Get the name entered by the user
+    var name = document.getElementById('name').value;
+
+    // Get the gender selected by the user
+    gender = document.querySelector('input[name="gender"]:checked')?.value;
+
+    // Set the value to the local storage
+    if (gender) {
+        localStorage.setItem(name.toLowerCase(), gender);
+    }
+});
+
+
+// Add a click event listener to the clear button
+clearButton.addEventListener('click', function() {
+    // Get the name entered by the user
+    var name = document.getElementById('name').value;
+
+    // Clear the value from the local storage
+    localStorage.removeItem(name);
 });

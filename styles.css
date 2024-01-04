@@ -33,6 +33,8 @@ body, html {
 button {
     margin: 1vh 0;
     padding: 0.8vh 1vh;
+    width: 6vw;
+    min-width: fit-content;
 }
 
 .panel {
@@ -45,6 +47,7 @@ button {
     border-radius: 1vh;
     padding: 0.5vh 1vw;
     margin: 6vh 0;
+    display: none;
 }
 
 input {
