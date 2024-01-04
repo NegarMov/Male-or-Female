@@ -2,6 +2,14 @@
 var submitButton = document.getElementById('submit');
 var errorElement = document.getElementById('error');
 
+function validateName(event) {
+    event = event || window.event;
+    var charCode = (typeof event.which == "undefined") ? event.keyCode : event.which;
+    var charStr = String.fromCharCode(charCode);
+    
+    return /^[a-zA-Z\s]$/.test(charStr)
+}
+
 
 // Add a click event listener to the submit button
 submitButton.addEventListener('click', function() {
