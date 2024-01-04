@@ -25,7 +25,7 @@ submitButton.addEventListener('click', function() {
             if (response.ok) {
                 return response.json();
             } else {
-                throw new Error('Error: ' + response.status);
+                throw new Error(response.status);
             }
         })
         .then(function(data) {

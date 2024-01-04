@@ -16,30 +16,31 @@ body, html {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    height: 70%;
-    width: 50%;
+    height: fit-content;
+    width: fit-content;
+    min-width: max-content;
+    min-height: max-content;
+    padding: 2vh 2vw;
+    margin: auto;
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    margin: auto;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 1.5em;
-    min-width: min-content;
-    min-height: min-content;
 }
 
 button {
     margin: 1vh 0;
-    padding: 0.8vh 1vh;
+    padding: 0.8vh 1vw;
     width: 6vw;
     min-width: fit-content;
 }
 
 .panel {
     width: 50%;
-    padding: 3vh 3vw;
+    padding: 4vh 4vw;
 }
 
 .saved-section {
@@ -56,6 +57,7 @@ input, p {
 
 hr {
     margin-bottom: 3vh;
+    margin-top: 1vh;
 }
 
 .error {
