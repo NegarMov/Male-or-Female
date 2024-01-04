@@ -1,17 +1,37 @@
+/*
+    Make the body cover the whole page, 
+    with zero margin and padding,
+    and set the font size and family of the whole page
+*/
 body, html {
     height: 100vh;
-    font-size: 3vh;
     margin: 0;
     padding: 0;
+    font-size: 3vh;
     font-family: "Roboto", sans-serif;
 }
 
+/*
+    Add the image to the background class, 
+    center it,
+    and make it fully cover its parent
+*/
 .background {
     background-image: url('./students-illustration.jpg');
     background-position: center;
     height: 100%;
 }
 
+/*
+    The main content is a flex,
+    which uses the space-around mode to justify its contents (the left and right panels),
+    and aligns the start of its contents (so the titles begin at the same height),
+    the height and width are set to fit the contents and never get smaller than them,
+    the padding is set according to the view size,
+    the margin, and the positions are set so that the div is centered,
+    the background color is set to a transparent white,
+    and the border radius is set to make the div look round
+*/
 .content {
     display: flex;
     justify-content: space-around;
@@ -28,9 +48,14 @@ body, html {
     top: 0;
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 1.5em;
+    border-radius: 5vh;
 }
 
+/*
+    The buttons' margin and padding is set to give them a better look,
+    and the width is set so that all the buttons have the same width,
+    unless the screen is small, so the buttons will have a minimum width of their content
+*/
 button {
     margin: 1vh 0;
     padding: 0.8vh 1vw;
@@ -38,11 +63,20 @@ button {
     min-width: fit-content;
 }
 
+/*
+    Each panel covers 50% of its parent, so that they both occupy the same space,
+    also the padding is set according to the view size
+*/
 .panel {
     width: 50%;
     padding: 4vh 4vw;
 }
 
+/*
+    The saved answer section has a rounded boarder around it,
+    the padding and margin are set according to the view size,
+    and this section is hidden by default
+*/
 .saved-section {
     border:1px solid dimgray;
     border-radius: 1vh;
@@ -51,15 +85,27 @@ button {
     display: none;
 }
 
+/*
+    Make each input and paragraph have a margin at the top and bottom
+*/
 input, p {
     margin: 2vh 0;
 }
 
+/* 
+    Make the horizontal line closer to the item at its top than the item below it
+*/
 hr {
     margin-bottom: 3vh;
     margin-top: 1vh;
 }
 
+/* 
+    The text with class error is shown in red,
+    looks smaller than the other texts,
+    its font is bold,
+    and is hidden by default
+*/
 .error {
     color: red;
     font-size: smaller;
