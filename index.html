@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <meta name="viewport" content="initial-scale=1">
+    </head>
+    <body>
+        <div class="background">
+            <div class="content">
+            <div class="panel">
+                <h2>Ms. or Mr.?</h2>
+                <hr/>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <div>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+                </div>
+                <div>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                </div>
+                <div>
+                    <button type="submit" id="submit">Submit</button>
+                </div>
+                <div>
+                    <button type="submit" id="save">Save</button>
+                </div>
+                <p class="error" id="error">* This is an error!</p>
+            </div>
+            <div class="panel">
+                <div class="prediction-section">
+                <h2>Prediction</h2>
+                <hr/>
+                <p id="gender">-</p>
+                <p id="probability">-</p>
+                </div>
+                <div class="saved-section">
+                <h4>Saved Answer</h4>
+                <hr/>
+                <p>-</p>
+                <button type="button">Clear</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
