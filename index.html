@@ -12,15 +12,17 @@
                 <h2>Ms. or Mr.?</h2>
                 <hr/>
                 <form id="form">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" maxlength="255" onkeypress="return validateName(event)">
-                    <div>
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="female">Female</label>
+                    <div class="labeled">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" maxlength="255" onkeypress="return validateName(event)">
                     </div>
                     <div>
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
                     </div>
                     <div>
                         <button type="submit" id="submit">Submit</button>

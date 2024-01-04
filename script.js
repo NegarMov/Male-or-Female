@@ -6,6 +6,7 @@ var errorElement = document.getElementById('error');
 var nameElement = document.getElementById('name');
 
 
+// Prevent the user from typing anything other than letters and space in the name field
 function validateName(event) {
     event = event || window.event;
     var charCode = (typeof event.which == "undefined") ? event.keyCode : event.which;
@@ -19,12 +20,16 @@ function validateName(event) {
 formElement.addEventListener('submit', function(event) {
     event.preventDefault();
 
+    // Hide the error field
+    errorElement.style.display = 'none';
+
     // Get the name entered by the user
     var name = nameElement.value;
 
     // Make a GET request to the API
     fetch('https://api.genderize.io/?name=' + name)
         .then(function(response) {
+            // Check the response status
             if (response.ok) {
                 return response.json();
             } else {
@@ -49,9 +54,6 @@ formElement.addEventListener('submit', function(event) {
                 // Update the paragraphs with the response data
                 genderElement.textContent = 'Gender: ' + data.gender;
                 probabilityElement.textContent = 'Probability: ' + data.probability;
-
-                // Hide the error field
-                errorElement.style.display = 'none';
             }
         })
         .catch(function(error) {

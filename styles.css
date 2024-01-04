@@ -64,12 +64,30 @@ button {
 }
 
 /*
-    Each panel covers 50% of its parent, so that they both occupy the same space,
+    Each panel's width is determined based on the view width (as the parent is set to fit panels),
     also the padding is set according to the view size
 */
 .panel {
-    width: 50%;
+    width: 20vw;
     padding: 4vh 4vw;
+}
+
+/*
+    The class is for a label followed by an input, which uses a flex display,
+    puts an appropriate amount of gap between the label and the input box,
+    and aligns the center of the label and the input to achieve a nice look
+*/
+.labeled {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+
+/*
+    The input textbox is set to fill its parent's width, in order to make it responsive
+*/
+input[type=text] {
+    width: 100%;
 }
 
 /*
@@ -111,4 +129,7 @@ hr {
     font-size: smaller;
     font-weight: bold;
     display: none;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: normal;
 }
