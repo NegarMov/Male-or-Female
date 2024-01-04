@@ -50,8 +50,12 @@ button {
     display: none;
 }
 
-input {
+input, p {
     margin: 2vh 0;
+}
+
+hr {
+    margin-bottom: 3vh;
 }
 
 .error {

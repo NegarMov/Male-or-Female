@@ -92,8 +92,12 @@ saveButton.addEventListener('click', function() {
 // Add a click event listener to the clear button
 clearButton.addEventListener('click', function() {
     // Get the name entered by the user
-    var name = document.getElementById('name').value;
+    var name = document.getElementById('name').value.toLowerCase();
 
     // Clear the value from the local storage
     localStorage.removeItem(name);
+
+    // Clear the saved answer text
+    var savedAnswerElement = document.getElementById('saved-answer');
+    savedAnswerElement.textContent = '-';
 });
