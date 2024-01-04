@@ -1,8 +1,9 @@
 // Get the required elements from the doc
-var submitButton = document.getElementById('submit');
+var formElement = document.getElementById('form');
 var saveButton = document.getElementById('save');
 var clearButton = document.getElementById('clear');
 var errorElement = document.getElementById('error');
+var nameElement = document.getElementById('name');
 
 
 function validateName(event) {
@@ -15,9 +16,11 @@ function validateName(event) {
 
 
 // Add a click event listener to the submit button
-submitButton.addEventListener('click', function() {
+formElement.addEventListener('submit', function(event) {
+    event.preventDefault();
+
     // Get the name entered by the user
-    var name = document.getElementById('name').value;
+    var name = nameElement.value;
 
     // Make a GET request to the API
     fetch('https://api.genderize.io/?name=' + name)
@@ -77,7 +80,7 @@ submitButton.addEventListener('click', function() {
 // Add a click event listener to the save button
 saveButton.addEventListener('click', function() {
     // Get the name entered by the user
-    var name = document.getElementById('name').value;
+    var name = nameElement.value;
 
     // Get the gender selected by the user
     gender = document.querySelector('input[name="gender"]:checked')?.value;
@@ -92,7 +95,7 @@ saveButton.addEventListener('click', function() {
 // Add a click event listener to the clear button
 clearButton.addEventListener('click', function() {
     // Get the name entered by the user
-    var name = document.getElementById('name').value.toLowerCase();
+    var name = nameElement.value.toLowerCase();
 
     // Clear the value from the local storage
     localStorage.removeItem(name);
