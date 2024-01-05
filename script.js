@@ -3,7 +3,10 @@ var formElement = document.getElementById('form');
 var saveButton = document.getElementById('save');
 var clearButton = document.getElementById('clear');
 var errorElement = document.getElementById('error');
+var saveInfoElement = document.getElementById('save-info');
 var nameElement = document.getElementById('name');
+var genderElement = document.getElementById('gender');
+var probabilityElement = document.getElementById('probability');
 
 
 // Prevent the user from typing anything other than letters and space in the name field
@@ -37,10 +40,6 @@ formElement.addEventListener('submit', function(event) {
             }
         })
         .then(function(data) {
-            // Get the elements of the gender and probability fields
-            var genderElement = document.getElementById('gender');
-            var probabilityElement = document.getElementById('probability');
-
             // Check if the API knows the answer
             if (data.gender === null) {
                 // Show the error to the user
@@ -79,18 +78,53 @@ formElement.addEventListener('submit', function(event) {
 });
 
 
+// Show a message about the saving process
+function showSavingMessage(message) {
+    saveInfoElement.style.display = 'inline-block'
+    saveInfoElement.textContent = message
+    setTimeout(function() { 
+        saveInfoElement.style.display = 'none';
+    }, 2000);
+}
+
+
 // Add a click event listener to the save button
 saveButton.addEventListener('click', function() {
     // Get the name entered by the user
     var name = nameElement.value;
 
+    // Check if the name is empty or not
+    if (!name) {
+        showSavingMessage('Nothing to save!')
+        return
+    }
+
     // Get the gender selected by the user
     gender = document.querySelector('input[name="gender"]:checked')?.value;
 
-    // Set the value to the local storage
+    // Check if the user has chonsen an option
     if (gender) {
-        localStorage.setItem(name.toLowerCase(), gender);
+        // Set the value to the local storage
+        localStorage.setItem(name.toLowerCase(), gender.toLowerCase());
+
+        // Show a message to the user
+        showSavingMessage('Saved your answer!')
+        return
     }
+
+    // Check if there is a prediction for the name
+    predicedGender = genderElement.textContent?.split(" ")[1]
+    if (predicedGender) {
+        // Set the value to the local storage
+        localStorage.setItem(name.toLowerCase(), predicedGender.toLowerCase());
+
+        // Show a message to the user
+        showSavingMessage('Saved predicted answer!')
+        return
+    }
+
+    // No gender selected manually and no prediction was made
+    showSavingMessage('Nothing to save!')
 });
 
 

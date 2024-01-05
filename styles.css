@@ -7,7 +7,7 @@ body, html {
     height: 100vh;
     margin: 0;
     padding: 0;
-    font-size: 3vh;
+    font-size: 1.5vw;
     font-family: "Roboto", sans-serif;
 }
 
@@ -54,13 +54,15 @@ body, html {
 /*
     The buttons' margin and padding is set to give them a better look,
     and the width is set so that all the buttons have the same width,
-    unless the screen is small, so the buttons will have a minimum width of their content
+    unless the screen is small, so the buttons will have a minimum width of their content,
+    font size is set so that it will change with the base font size when the window is resized
 */
 button {
     margin: 1vh 0;
     padding: 0.8vh 1vw;
     width: 6vw;
     min-width: fit-content;
+    font-size: 0.75em;
 }
 
 /*
@@ -88,6 +90,7 @@ button {
 */
 input[type=text] {
     width: 100%;
+    height: 1.5em;
 }
 
 /*
@@ -118,6 +121,19 @@ hr {
     margin-top: 1vh;
 }
 
+/*
+    The text with class info is shown in gray,
+    looks smaller than the other texts,
+    has a margin at its left (as it's going to be inline),
+    and is hidden by default
+*/
+.info {
+    color: dimgray;
+    font-size: 0.75em;
+    margin-left: 0.5vw;
+    display: none;
+}
+
 /* 
     The text with class error is shown in red,
     looks smaller than the other texts,
@@ -129,7 +145,4 @@ hr {
     font-size: smaller;
     font-weight: bold;
     display: none;
-    overflow: auto;
-    white-space: pre-wrap;
-    word-wrap: normal;
 }
