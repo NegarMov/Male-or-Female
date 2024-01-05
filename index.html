@@ -14,7 +14,7 @@
                 <form id="form">
                     <div class="labeled">
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" maxlength="255" onkeypress="return validateName(event)">
+                        <input type="text" id="name" name="name" maxlength="255" onkeypress="return validateName(event)" onkeydown="return clearOutputs()">
                     </div>
                     <div>
                         <input type="radio" id="female" name="gender" value="female">

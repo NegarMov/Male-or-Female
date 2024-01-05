@@ -19,6 +19,27 @@ function validateName(event) {
 }
 
 
+// Reset the document; this function is used whenever the name field is changed
+function clearOutputs() {
+    // Uncheck the radio buttons
+    var checkedRadio = document.querySelector('input[name="gender"]:checked')
+    if (checkedRadio) {
+        checkedRadio.checked = false;
+    }
+
+    // Clear the error message
+    errorElement.style.display = 'none';
+    
+    // Clear the gender and probability elements
+    genderElement.textContent = '-';
+    probabilityElement.textContent = '-';
+
+    // Clear the saved box
+    var savedElement = document.getElementsByClassName('saved-section')[0];
+    savedElement.style.display = 'none';
+}
+
+
 // Add a click event listener to the submit button
 formElement.addEventListener('submit', function(event) {
     event.preventDefault();
